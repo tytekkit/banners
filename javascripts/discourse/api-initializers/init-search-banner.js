@@ -13,6 +13,7 @@ function determineContrastingMonoFromImg(imageElement, callback) {
       rgb = { r: 0, g: 0, b: 0 },
       count = 0;
 
+      img.crossOrigin = "anonymous";
       img.src = imageElement;
 
   img.onload = function(){
