@@ -1,0 +1,48 @@
+show_on:
+  default: top_menu
+  type: enum
+  choices:
+    - top_menu
+    - homepage
+    - all
+  description: top_menu refers to the <a href="/admin/site_settings/category/all_results?filter=top_menu">top menu site setting</a>
+
+Show_search_in_banner: true
+
+banner_height_shown:
+  default: 500
+  type: integer
+  description: The banner height on selected pages. 
+
+banner_height_alt:
+  default: 200
+  type: integer
+  description: The banner height on non-selected pages.
+
+background_images:
+  type: list
+  default: ""
+  description: background images for the banner
+
+background_sizing:
+  default: cover
+  type: enum
+  choices:
+    - contain
+    - cover
+
+show_for:
+  default: everyone
+  type: enum
+  choices:
+    - everyone
+    - logged_in
+    - logged_out
+
+banner_links:
+  default: >-
+    [{"icon":"info-circle","text":"About","url":"/faq"},
+    {"icon":"users","text":"Staff","url":"/about"},
+    {"icon":"star","text":"Pref","url":"/my/preferences"}]
+  json_schema: '{ "type": "array", "format": "table", "uniqueItems": true, "items": { "type": "object", "properties": { "icon": { "type": "string", "minLength": 1 }, "text": { "type": "string", "minLength": 1 }, "url": { "type": "string" } }, "additionalProperties": false } }'
+  

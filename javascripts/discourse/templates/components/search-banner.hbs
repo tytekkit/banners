@@ -1,0 +1,18 @@
+
+<div class="header-banner" display="{{shouldDisplay}}">
+  {{#if shouldDisplay}}
+    <h1>{{html-safe (theme-i18n "search_banner.headline")}}</h1>
+    <p>{{html-safe (theme-i18n "search_banner.subhead")}}</p>
+    {{#if showSearch}}
+      {{mount-widget widget="search-widget"}}
+    {{/if}}
+    <div class="header-links">
+      {{#each bannerLinks as |bl|}}
+        <a href="{{bl.url}}" class="header-link-item">
+          {{d-icon bl.icon}}
+          <h3>{{bl.text}}</h3>
+        </a>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>

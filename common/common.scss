@@ -1,0 +1,182 @@
+@import "common/foundation/mixins";
+
+$max-width: 600px;
+
+header {
+    transition: 0.5s ease background-color;
+
+    &:not([scrolled]),
+    &[scrolled=false] {
+        color: var(--bg-contrast);
+        background-color: rgba(var(--bg-avg),0.8);
+        backdrop-filter: blur(5px) brightness(1.2);
+
+        #toggle-hamburger-menu > svg:not(:hover) {
+            color: var(--bg-contrast);
+        }
+
+        div.floating-search-input {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
+.header-banner {
+
+    margin-top: -60px;
+    padding-top: calc(60px + 2em);
+
+    &[display=true] {
+        height: $banner_height_shown + "px";
+    }
+    &[display=false] {
+        height: $banner_height_alt + "px";
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding-inline: 2em;
+    background-size: $background_sizing;
+    background-position: center;
+    background-image: var(--bg-image);
+    box-sizing: border-box;
+    transition: 1s ease height;
+
+    h1,
+    p {
+        text-align: center;
+        color: var(--bg-contrast);
+        font-size: 2.8em;
+        max-width: 620px;
+        
+        &:empty {
+            display: none;
+        }
+    }
+
+    .search-input {
+        width: 480px;
+        max-width: calc(100vw - 2em);
+    }
+
+    .search-menu {
+        position: relative;
+        display: flex;
+        input[type="text"] {
+            margin: 0;
+            width: 100%;
+            padding-right: 4em;
+        }
+    }
+
+    .search-icon {
+        position: absolute;
+        z-index: 2;
+        order: 2;
+        right: 0;
+        height: 100%;
+        background: transparent;
+        .discourse-no-touch & {
+            &:hover {
+            background: transparent;
+                .d-icon {
+                    color: var(--primary-high);
+                }
+            }
+        }
+    }
+
+    .results {
+        box-sizing: border-box;
+        background: var(--secondary);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        position: absolute;
+        z-index: 9;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        top: 2.4em;
+        right: 0;
+        padding: 0.5em;
+        @include breakpoint(mobile-extra-large) {
+          width: 100%;
+        }
+        ul,
+        ol {
+          list-style-type: none;
+          margin: 0;
+        }
+      }
+    
+      .searching a.show-advanced-search {
+        display: none;
+      }
+    
+      .search-link .d-icon {
+        color: var(--primary-medium);
+      }
+    
+      span.keyword {
+        color: var(--primary);
+      }
+
+    .header-links {
+        display: flex;
+        gap: 1em;
+        margin: 1.5em 1em;
+
+        .header-link-item {
+            color: var(--bg-contrast);
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            padding: 1em 1.5em;
+            overflow: hidden;
+            transition: 1s ease all;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                transition: 0.35s ease all;
+            }
+
+            > h3, > svg {
+                z-index: 1;
+            }
+
+            > h3 {
+                font-size: 2em;
+            }
+
+            > svg {
+                color: rgba(var(--bg-avg),1);
+                position: relative;
+                font-size: 2.5em;
+                padding: 0.8em;
+                background-color: var(--bg-contrast);
+                border-radius: 50%;
+                transition: 0.35s linear all;
+            }
+
+            &:hover {
+                background-color: rgba(var(--bg-avg),0.5);
+                backdrop-filter: blur(5px);
+
+                > svg {
+                    color: var(--bg-contrast);
+                    background-color: transparent;
+                    transform: scale(2);
+                }
+            }
+        }
+    }
+    
+}
