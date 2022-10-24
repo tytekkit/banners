@@ -20,6 +20,10 @@ header {
             pointer-events: none;
         }
     }
+
+    &[scrolled=true] {
+        filter: invert(1);
+    }
 }
 
 .header-banner {
