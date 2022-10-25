@@ -1,6 +1,4 @@
-@import "common/foundation/mixins";
 
-$max-width: 600px;
 
 header {
     transition: 0.5s ease background-color;
@@ -11,6 +9,7 @@ header {
         background-color: rgba(var(--bg-avg),0.8);
         backdrop-filter: blur(5px) brightness(1.2);
 
+        ul.icons > li svg.d-icon,
         #toggle-hamburger-menu > svg:not(:hover) {
             color: var(--bg-contrast);
         }
@@ -24,6 +23,11 @@ header {
     &[scrolled=true] #site-logo {
         filter: invert(1);
     }
+}
+
+body.category div.floating-search-input {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .header-banner {
