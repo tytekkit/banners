@@ -1,7 +1,5 @@
 
-
-header {
-    transition: 0.5s ease background-color;
+body.navigation-topics, body.navigation-categories {
 
     &:not([scrolled]),
     &[scrolled=false] {
@@ -19,6 +17,9 @@ header {
             pointer-events: none;
         }
     }
+}
+header {
+    transition: 0.5s ease background-color;
 
     &[scrolled=true] #site-logo {
         filter: invert(1);
