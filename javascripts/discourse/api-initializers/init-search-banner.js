@@ -201,7 +201,7 @@ export default apiInitializer("0.11.1", (api) => {
     const header = document.querySelector("header");
     const searchBanner = document.querySelector("div.search-banner");
     var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-    var scrollBool = (scrolled + 60 >= searchBanner.offsetHeight);
+    var scrollBool = (scrolled + 60 >= settings.banner_height_shown);
     header.setAttribute("scrolled", scrollBool);
     console.log(scrollBool);
 
